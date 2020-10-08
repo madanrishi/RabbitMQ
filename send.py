@@ -1,12 +1,12 @@
 import pika
-
+import random
 
 connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
 
 channel = connection.channel()
+randomGen = str(random.randint(1,100000))
+channel.basic_publish(exchange = 'test-exchange', routing_key = 'hello',body = randomGen)
 
-channel.basic_publish(exchange = 'test-exchange', routing_key = 'hello',body = 'Check This ')
-
-print('[x] sent --> New Message')
+print('[x] sent --> {}'.format(randomGen))
 
 connection.close()
