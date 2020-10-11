@@ -1,6 +1,9 @@
-from dotenv import load_dotenv
-
 import sys
-from pathlib import Path
+import os
+import jmespath as jp
+print(sys.path)
+print(os.path.dirname(__file__))
+os.environ
+# print(sys.path.append(os.path.join(os.path.dirname(__file__), 'package')))
 
-_project_root_ = str(Path(__file__).resolve().parents[1])
+import boto
